@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="hello">Hello World, MainActivity!</string>
     <string name="app_name">LocalChat</string>
+    <string name="sendButtonText">Send</string>
+    <string name="defaultMessage">Lorem Ipsum!</string>
 
 </resources>
