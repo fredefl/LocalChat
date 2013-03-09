@@ -1,7 +1,8 @@
-package com.slidingmenu.example.fragments;
+package dk.illution.localChat.fragments;
 
-import com.slidingmenu.example.R;
+import dk.illution.localChat.R;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,14 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+@SuppressLint("ValidFragment")
 public class ColorFragment extends Fragment {
-	
+
 	private int mColorRes = -1;
-	
-	public ColorFragment() { 
+
+	public ColorFragment() {
 		this(R.color.white);
 	}
-	
+
 	public ColorFragment(int colorRes) {
 		mColorRes = colorRes;
 		setRetainInstance(true);
@@ -28,15 +30,14 @@ public class ColorFragment extends Fragment {
 			mColorRes = savedInstanceState.getInt("mColorRes");
 		int color = getResources().getColor(mColorRes);
 		// construct the RelativeLayout
-		RelativeLayout v = new RelativeLayout(getActivity());
-		v.setBackgroundColor(color);		
+		View v = inflater.inflate(R.layout.conversation, null);
 		return v;
 	}
-	
+
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putInt("mColorRes", mColorRes);
 	}
-	
+
 }

@@ -1,4 +1,4 @@
-package com.slidingmenu.example;
+package dk.illution.localChat;
 
 import android.content.Context;
 import android.os.Bundle;

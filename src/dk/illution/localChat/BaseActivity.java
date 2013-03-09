@@ -1,4 +1,4 @@
-package com.slidingmenu.example;
+package dk.illution.localChat;
 
 import java.util.ArrayList;
 import java.util.List;

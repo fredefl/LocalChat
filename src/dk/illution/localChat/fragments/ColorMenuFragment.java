@@ -1,4 +1,4 @@
-package com.slidingmenu.example.fragments;
+package dk.illution.localChat.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.slidingmenu.example.R;
+import dk.illution.localChat.R;
 
 public class ColorMenuFragment extends ListFragment {
 
@@ -21,9 +21,9 @@ public class ColorMenuFragment extends ListFragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		String[] colors = getResources().getStringArray(R.array.color_names);
+		String[] conversations = {"Frederik Lassen", "Bo Thomsen"};
 		ArrayAdapter<String> colorAdapter = new ArrayAdapter<String>(getActivity(),
-				android.R.layout.simple_list_item_1, android.R.id.text1, colors);
+				android.R.layout.simple_list_item_1, android.R.id.text1, conversations);
 		setListAdapter(colorAdapter);
 	}
 
