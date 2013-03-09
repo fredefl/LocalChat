@@ -13,7 +13,7 @@ public class FragmentChangeActivity extends BaseActivity {
 	private Fragment mContent;
 
 	public FragmentChangeActivity() {
-		super(R.string.changing_fragments);
+		super(R.string.app_name);
 	}
 
 	@Override
@@ -23,7 +23,7 @@ public class FragmentChangeActivity extends BaseActivity {
 		if (savedInstanceState != null)
 			mContent = getSupportFragmentManager().getFragment(savedInstanceState, "mContent");
 		if (mContent == null)
-			mContent = new ColorFragment(R.color.red);
+			mContent = new ColorFragment("",-1);
 
 		// set the Above View
 		setContentView(R.layout.content_frame);

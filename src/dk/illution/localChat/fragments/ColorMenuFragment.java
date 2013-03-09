@@ -1,5 +1,8 @@
 package dk.illution.localChat.fragments;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -13,6 +16,8 @@ import dk.illution.localChat.R;
 
 public class ColorMenuFragment extends ListFragment {
 
+	List<String> conversations = new ArrayList<String>();
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		return inflater.inflate(R.layout.list, null);
@@ -21,7 +26,8 @@ public class ColorMenuFragment extends ListFragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		String[] conversations = {"Frederik Lassen", "Bo Thomsen"};
+		conversations.add("Frederik Lassen");
+		conversations.add("Bo Thomsen");
 		ArrayAdapter<String> colorAdapter = new ArrayAdapter<String>(getActivity(),
 				android.R.layout.simple_list_item_1, android.R.id.text1, conversations);
 		setListAdapter(colorAdapter);
@@ -29,26 +35,7 @@ public class ColorMenuFragment extends ListFragment {
 
 	@Override
 	public void onListItemClick(ListView lv, View v, int position, long id) {
-		Fragment newContent = null;
-		switch (position) {
-		case 0:
-			newContent = new ColorFragment(R.color.red);
-			break;
-		case 1:
-			newContent = new ColorFragment(R.color.green);
-			break;
-		case 2:
-			newContent = new ColorFragment(R.color.blue);
-			break;
-		case 3:
-			newContent = new ColorFragment(android.R.color.white);
-			break;
-		case 4:
-			newContent = new ColorFragment(android.R.color.black);
-			break;
-		}
-		if (newContent != null)
-			switchFragment(newContent);
+			switchFragment(new ColorFragment(conversations.get(position), position));
 	}
 
 	// the meat of switching the above fragment
